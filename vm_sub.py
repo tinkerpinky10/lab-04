@@ -14,10 +14,14 @@ def on_connect(client, userdata, flags, rc):
 
     print("Connected to server (i.e., broker) with result code "+str(rc))
     #replace user with your USC username in all subscriptions
-    client.subscribe("user/ipinfo")
+    client.subscribe("kdvasque/ipinfo")
+    client.subscribe("kdvasque/dateInfo")
+    client.subscribe("kdvasque/timeInfo")
     
     #Add the custom callbacks by indicating the topic and the name of the callback handle
-    client.message_callback_add("user/ipinfo", on_message_from_ipinfo)
+    client.message_callback_add("kdvasque/ipinfo", on_message_from_ipinfo)
+    client.message_callback_add("kdvasque/dateInfo", on_message_from_dateInfo)
+    client.message_callback_add("kdvasque/timeInfo", on_message_from_timeInfo)
 
 
 """This object (functions are objects!) serves as the default callback for 
@@ -30,6 +34,14 @@ def on_message(client, userdata, msg):
 #Custom message callback.
 def on_message_from_ipinfo(client, userdata, message):
    print("Custom callback  - IP Message: "+message.payload.decode())
+
+def on_message_from_dateInfo(client, userdata,message):
+   print("dateInfo:")
+   print("Custom callback - The Date: " +message.payload.decode())
+
+def on_message_from_timeInfo(client, userdata, message):
+   print("timeInfo:")
+   print("Custom callback - The Time: " +message.payload.decode())
 
 
 
