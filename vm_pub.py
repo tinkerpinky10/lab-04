@@ -1,3 +1,4 @@
+#Team Members: Karla Vasquez & Gila Kohanbash
 """EE 250L Lab 04 Starter Code
 Run vm_sub.py in a separate terminal on your VM."""
 
