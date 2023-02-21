@@ -1,3 +1,4 @@
+#Team Members: Karla Vasquez & Gila Kohanbash
 import paho.mqtt.client as mqtt
 import time
 
@@ -20,7 +21,7 @@ messages received when another node publishes a message this client is
 subscribed to. By "default,"" we mean that this callback is called if a custom
 callback has not been registered using paho-mqtt's message_callback_add()."""
 
-#when listeniing, what to do with message
+#when listening, what to do with message
 def callback_on_pong(client, userdata, msg):
 	print("Custom callback - Message: "+msg.payload.decode())
 	msg = int(msg.payload.decode())
